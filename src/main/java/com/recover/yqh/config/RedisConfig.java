@@ -28,9 +28,9 @@ public class RedisConfig {
 		jedisConnectionFactory.setPoolConfig(jedisPoolConfig());
 		jedisConnectionFactory.setUsePool(true);
 		jedisConnectionFactory.setHostName(env.getProperty("redis.hostName"));
-		jedisConnectionFactory.setPort(Integer.parseInt(env.getProperty("redis.port")));
+		jedisConnectionFactory.setPort(env.getProperty("redis.port", Integer.class));
 		jedisConnectionFactory.setPassword(env.getProperty("redis.password"));
-		jedisConnectionFactory.setDatabase(Integer.parseInt(env.getProperty("redis.database")));
+		jedisConnectionFactory.setDatabase(env.getProperty("redis.database", Integer.class));
 		return jedisConnectionFactory;
 	}
 	
